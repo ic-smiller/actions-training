@@ -1,0 +1,23 @@
+on:
+  push:
+    paths: 
+      - hello-world-docker-action/**
+  workflow_dispatch:
+    inputs:
+      who-to-greet:
+        default: scott        
+
+jobs:
+  run-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: run my action
+        id: hello-world
+        uses: ./hello-world-docker-action
+        with: 
+          who-to-greet: ${{ github.event.inputs.who-to-greet }}
+
+      - name: output time
+        run: echo "${{ steps.hello-world.outputs.time }}"
