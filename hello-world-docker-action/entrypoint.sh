@@ -1,3 +1,3 @@
 echo "hello $1"
 
-date >> $GITHUB_OUTPUT
+echo "time=$(date)" >> $GITHUB_OUTPUT
