@@ -1,0 +1,16 @@
+name: Hello World
+
+description: say hi
+
+inputs:
+  who-to-greet:
+    description: Who to greet (prints 'Hello X' if 'X')
+    required: true
+    default: 'World'
+    type: string
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.who-to-greet }}
