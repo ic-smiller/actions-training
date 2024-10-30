@@ -14,3 +14,7 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.who-to-greet }}
+
+outputs:
+  time:
+    description: 'when this ran'
