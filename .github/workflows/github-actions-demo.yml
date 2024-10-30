@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       triggering_event_name: ${{ github.event_name }}
-      branch: ${{ GITHUB_REF }}
+      branch: ${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
       - run: tree
